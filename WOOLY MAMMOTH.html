@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Extinct Animals - University Project</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #3498db;
+      --light-color: #f9f9f9;
+      --dark-color: #222;
+      --text-color: #333;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .animal-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .animal-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1.5rem;
+    }
+
+    .animal-header h2 {
+      font-size: 1.8rem;
+    }
+
+    .animal-header h3 {
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .animal-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .animal-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .animal-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .animal-info p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .animal-facts {
+      background-color: var(--light-color);
+      padding: 1rem;
+      border-left: 5px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+    }
+
+    .animal-facts h4 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+
+    .fact-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .fact-label {
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .animal-content {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Extinct Animals</h1>
+    <nav>
+      <ul>
+        <li><a href="#woolly-mammoth">Woolly Mammoth</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="animal-card" id="woolly-mammoth">
+      <div class="animal-header">
+        <h2>Woolly Mammoth</h2>
+        <h3>Scientific Name: <em>Mammuthus primigenius</em></h3>
+      </div>
+      <div class="animal-content">
+        <div class="animal-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcA8jgsSD2aPW4VoiwAlBNovpZ832v6cBguQ&s" alt="Woolly Mammoth">
+        </div>
+        <div class="animal-info">
+          <p>The woolly mammoth roamed the Earth during the Ice Age and became extinct around 4,000 years ago, likely due to climate change and overhunting by humans.</p>
+          <div class="animal-facts">
+            <h4>Quick Facts</h4>
+            <div class="fact-item">
+              <span class="fact-label">Habitat:</span> Northern Eurasia and North America
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Extinction:</span> Approx. 4,000 years ago
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Cause:</span> Climate change and human hunting
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Diet:</span> Plant-based – grasses, fruits, nuts
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Famous Extinct Animals</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <style>
+        /* Root Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --light-color: #f9f9f9;
+    --dark-color: #222;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Animal Card */
+.animal-card {
+    background: white;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.animal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+}
+
+.animal-content {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Animal Image */
+.animal-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.animal-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Info & Facts */
+.animal-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.animal-facts {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.fact-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.fact-label {
+    font-weight: 600;
+    min-width: 120px;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .animal-content {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+    <header>
+        <h1>Famous Extinct Animals</h1>
+        <nav>
+            <ul>
+                <li><a href="#dodo">Dodo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="animal-card" id="dodo">
+            <div class="animal-header">
+                <h2>Dodo</h2>
+                <h3>Scientific Name: Raphus cucullatus</h3>
+            </div>
+            <div class="animal-content">
+                <figure class="animal-image">
+                    <img src="data:image/jpeg;base64,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" alt="Dodo Bird">
+                </figure>
+                <div class="animal-info">
+                    <p>The dodo was a flightless bird endemic to Mauritius. It became extinct in the late 1600s, just a few decades after it was discovered by humans.</p>
+                    <div class="animal-facts">
+                        <h4>Quick Facts</h4>
+                        <div class="fact-item">
+                            <span class="fact-label">Habitat:</span>
+                            <span>Island of Mauritius</span>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-label">Extinction:</span>
+                            <span>Late 1600s</span>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-label">Cause:</span>
+                            <span>Human hunting and invasive species</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Extinct Animals Project | University Presentation</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

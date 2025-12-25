@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extinct Animals Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .animal-selection {
+            padding: 2rem;
+        }
+
+        .animal-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            background-color: var(--light-color);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .animal-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .animal-option input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .animal-option input[type="radio"]:checked {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .animal-option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .animal-label {
+            flex-grow: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .animal-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-btn i {
+            margin-left: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .animal-option {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .animal-label {
+                margin: 0.5rem 0;
+            }
+            
+            .login-btn {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .animal-option input[type="radio"]:checked ~ .animal-label {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .animal-option input[type="radio"]:checked {
+            animation: pulse 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Extinct Animals Explorer</h1>
+            <p>Select an animal to learn more about its history</p>
+        </div>
+        
+        <div class="animal-selection">
+            <div class="animal-option">
+                <i class="fas fa-dove animal-icon"></i>
+                <input type="radio" id="DODO" name="Animal" value="DODO" required>
+                <label for="DODO" class="animal-label">Dodo - The flightless bird of Mauritius</label>
+                <button class="login-btn" onclick="window.location.href='DODO.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="animal-option">
+                <i class="fas fa-hippo animal-icon"></i>
+                <input type="radio" id="WOOLY_MAMMOTH" name="Animal" value="WOOLY MAMMOTH" required>
+                <label for="WOOLY_MAMMOTH" class="animal-label">Woolly Mammoth - The ice age giant</label>
+                <button class="login-btn" onclick="window.location.href='WOOLY MAMMOTH.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="animal-option">
+                <i class="fas fa-cat animal-icon"></i>
+                <input type="radio" id="SABER_TOOTH_TIGER" name="Animal" value="SABER TOOTH TIGER" required>
+                <label for="SABER_TOOTH_TIGER" class="animal-label">Saber-Tooth Tiger - The prehistoric predator</label>
+                <button class="login-btn" onclick="window.location.href='SABER TOOTH TIGER.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="animal-option">
+                <i class="fas fa-dragon animal-icon"></i>
+                <input type="radio" id="DINOSAURS" name="Animal" value="DINOSAURS" required>
+                <label for="DINOSAURS" class="animal-label">Dinosaurs - The rulers of Mesozoic era</label>
+                <button class="login-btn" onclick="window.location.href='DIANOSAURS.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="animal-option">
+                <i class="fas fa-snake animal-icon"></i>
+                <input type="radio" id="TITANOBOA" name="Animal" value="TITANOBOA" required>
+                <label for="TITANOBOA" class="animal-label">Titanoboa - The largest snake ever</label>
+                <button class="login-btn" onclick="window.location.href='TITANOBOA.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="animal-option">
+                <i class="fas fa-fish animal-icon"></i>
+                <input type="radio" id="MEGALODON" name="Animal" value="MEGALODON" required>
+                <label for="MEGALODON" class="animal-label">Megalodon - The ancient mega shark</label>
+                <button class="login-btn" onclick="window.location.href='MEGALODON.html'">
+                    Explore <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Extinct Animals Explorer | Educational Project</p>
+        </div>
+    </div>
+
+    <script>
+        
+        document.querySelectorAll('.animal-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                
+                if (!e.target.classList.contains('login-btn')) {
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                    
+                    
+                    document.querySelectorAll('.animal-option').forEach(opt => {
+                        opt.style.borderColor = 'transparent';
+                    });
+                    this.style.borderColor = 'var(--accent-color)';
+                }
+            });
+        });
+
+        
+        document.querySelectorAll('.login-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const selected = document.querySelector('input[name="Animal"]:checked');
+                if (!selected) {
+                    e.preventDefault();
+                    alert('Please select an animal to explore first');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

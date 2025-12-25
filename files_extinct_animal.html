@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Famous Extinct Animals</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .animal-selection {
+            padding: 2rem;
+        }
+
+        .animal-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            background-color: var(--light-color);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .animal-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .animal-option input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .animal-option input[type="radio"]:checked {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .animal-option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .animal-label {
+            flex-grow: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .animal-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-btn i {
+            margin-left: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .animal-option {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .animal-label {
+                margin: 0.5rem 0;
+            }
+            
+            .login-btn {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Animation for selected option */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .animal-option input[type="radio"]:checked ~ .animal-label {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .animal-option input[type="radio"]:checked {
+            animation: pulse 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Extinct Animals</h1>
+        <nav>
+            <ul>
+                <li><a href="#dodo">Dodo</a></li>
+                <li><a href="#woolly-mammoth">Woolly Mammoth</a></li>
+                <li><a href="#saber-tooth-tiger">Saber Tooth Tiger</a></li>
+                <li><a href="#dinosaurs">Dinosaurs</a></li>
+                <li><a href="#titanoboa">Titanoboa</a></li>
+                <li><a href="#megalodon">Megalodon</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dodo">
+            <h2>Dodo</h2>
+            <h3>Scientific Name: Raphus cucullatus</h3>
+            <img src="data:image/jpeg;base64,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" alt="Dodo Bird">
+            <p>The dodo was a flightless bird that lived on the island of Mauritius. 
+            It became extinct in the late 1600s due to human activity and introduced species.
+        Food Consumed:Plant-based fiids,such as nuts, seeds, fruits, and roots</p>
+        </section>
+
+        <section id="woolly-mammoth">
+            <h2>Woolly Mammoth</h2>
+            <h3>Scientific Name: Mammuthus primigenius</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcA8jgsSD2aPW4VoiwAlBNovpZ832v6cBguQ&s" 
+            alt="Woolly Mammoth" alt="Woolly Mammoth">
+            <p>The woolly mammoth roamed the Earth during the Ice Age and became extinct around 4,000 years ago,
+                 likely due to climate change and overhunting by humans. Food Consumed: Plant based items like fruits, nuts, etc.</p>
+        </section>
+
+        <section id="saber-tooth-tiger">
+            <h2>Saber Tooth Tiger</h2>
+            <h3>Scientific Name: Smilodon</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN_YRDbzajZaXFSjk7wDyM2h2EW1lifI1MCA&s" alt="Saber Tooth Tiger">
+            <p>The saber tooth tiger, also known as Smilodon, was known for its large, sharp canine teeth. 
+                It went extinct about 10,000 years ago. Food Consumed: Bison, Camels, as well as forest dwelling browsers such as deer and tapirs</p>
+        </section>
+
+        <section id="dinosaurs">
+            <h2>Dinosaurs</h2>
+            <h3>Scientific Name: Clade Dinosauria</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNy-SFn6GLUqbJR2xTDzB5j4kMffi-fQolqQ&s" alt="Dinosaurs">
+            <p>Dinosaurs dominated the Earth for millions of years before going extinct about 65 million years ago,
+                 likely due to a massive asteroid impact. Food Consumed: Some ate plants, Some ate meat, and Some ate both, but most were actually plant eaters</p>
+        </section>
+
+        <section id="titanoboa">
+            <h2>Titanoboa</h2>
+            <h3>Scientific Name: Titanoboa cerrejonensis</h3>
+            <img src="https://cdn.britannica.com/65/167765-050-3ECB58CD/Titanoboa.jpg" alt="Titanoboa" style="width: 300px; height: auto;">
+            <p>Titanoboa was the largest snake ever discovered, reaching lengths of over 40 feet. 
+                It lived around 60 million years ago in the tropical jungles of what is now Colombia. Food Consumed: Diet of titanoboa includes crocodiles, pythons, cobras, turtles, and large fishes.</p>
+        </section>
+        
+        <section id="megalodon">
+            <h2>Megalodon</h2>
+            <h3>Scientific Name: Otodus megalodon</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedpy9YSzt0Mem-qLEuAykcGgvU85Q2hR38w&s" alt="Megalodon" style="width: 300px; height: auto;">
+            <p>Megalodon is an extint species of giant mackerel shark that lived approximately 23 to 3.6 million years ago. Reason for the cause for extinction is shits in ocean temperature and food chains, 
+                as well as increased competiton from other predators Food Consumed: Megalodon loves to eat whales and large fishes and probably other sharks</p>
+        </section>
+        
+    </main>
+
+</body>
+</html>
